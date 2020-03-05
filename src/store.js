@@ -1,4 +1,5 @@
 import React, { createContext, useState, useReducer } from "react";
+import bookReducer from "./store/book";
 
 const AppContext = createContext();
 
@@ -33,6 +34,18 @@ export function AppProvider(props) {
       }
     ]
   });
+  const { book, addBookAction } = bookReducer();
+  // console.log(book);
+  // const [book, dispatchs] = useReducer(bookReducer, {
+  //   list: [],
+  //   page: 1,
+  //   total: 0
+  // });
+  // const addBookAction = () => {
+  //   dispatchs({
+  //     type: "BOOK_ADD"
+  //   });
+  // };
   const addAction = book => {
     dispatch({
       type: "BOOK_ADD",
@@ -47,7 +60,16 @@ export function AppProvider(props) {
   };
   return (
     <Provider
-      value={{ name: "Tom", count, setCount, state, addAction, delAction }}
+      value={{
+        name: "Tom",
+        count,
+        setCount,
+        state,
+        addAction,
+        delAction,
+        addBookAction,
+        book
+      }}
     >
       {children}
     </Provider>
