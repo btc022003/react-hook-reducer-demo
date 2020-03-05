@@ -5,19 +5,11 @@ export const AppContext = createContext();
 const { Provider } = AppContext;
 
 function Store(props) {
-  const {
-    book,
-    addBookCountAction,
-    addBookAction,
-    loadDataAction
-  } = bookReducer();
+  const book = bookReducer();
   return (
     <Provider
       value={{
-        books: book,
-        addAction: addBookCountAction,
-        addBookAction,
-        loadDataAction
+        book: { ...book }
       }}
     >
       {props.children}

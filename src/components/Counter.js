@@ -2,7 +2,9 @@ import React, { useContext } from "react";
 import { AppContext } from "../store";
 
 function Counter() {
-  const { books, addAction } = useContext(AppContext);
+  const {
+    book: { books, addAction }
+  } = useContext(AppContext);
   // console.log(context);
   return (
     <div>

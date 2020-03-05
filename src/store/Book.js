@@ -1,7 +1,7 @@
 import { useReducer } from "react";
 
 function Book() {
-  const [book, dispatch] = useReducer(
+  const [books, dispatch] = useReducer(
     (state, action) => {
       switch (action.type) {
         case "COUNT_ADD":
@@ -45,7 +45,7 @@ function Book() {
       payload: data.products
     });
   };
-  return { book, addBookCountAction, addBookAction, loadDataAction };
+  return { books, addBookCountAction, addBookAction, loadDataAction };
 }
 
 export default Book;

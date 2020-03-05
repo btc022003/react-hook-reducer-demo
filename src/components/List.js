@@ -3,8 +3,10 @@ import { AppContext } from "../store";
 
 function Counter() {
   const {
-    books: { list },
-    loadDataAction
+    book: {
+      books: { list },
+      loadDataAction
+    }
   } = useContext(AppContext);
   useEffect(() => {
     loadDataAction();
